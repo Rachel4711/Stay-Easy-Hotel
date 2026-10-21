@@ -1,0 +1,366 @@
+#navBar ul
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #f3af32;
+    display: flex;
+    justify-content: center;
+    font-family: "Bodoni MT", "Bodoni Moda", "Baskerville", serif;
+}
+
+#navBar ul li a 
+{
+    display: block;
+    color: #311200;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#navBar ul li a:hover
+{
+    background-color: #784c11;
+}
+
+.sectionTitle
+{
+    font-family: "Bodoni MT", "Bodoni Moda", "Baskerville", serif;
+    color: white;
+}
+
+.bodyText
+{
+    font-family: "Times New Roman", Times, serif;
+    text-align: justify;
+    line-height: 2.0;
+    color: white;
+}
+
+.bodyText ul
+{
+    font-family: "Times New Roman", Times, serif;
+    line-height: 1.6;
+}
+
+button
+{
+    background-color: #875715;
+    border-radius: 12px;
+    border: none;
+    font-size: 16px;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    padding: 15px 32px;
+    color: white;
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+body
+{
+    background-color: #311200;
+    margin: 0;
+}
+
+#banner
+{
+    margin: 50px 0px;
+    width: 100%;
+}
+
+#banner img
+{
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    display: block;
+}
+
+header
+{
+    display: flex;
+    align-items: center;
+}
+
+#logo img
+{
+    height: 150px;   
+    width: auto;
+    margin-left: 100px;
+}
+
+header h1
+{
+    color: #f3af32;
+    font-size: 50px;
+}
+
+.textPlacement 
+{
+    display: flex;
+    gap: 50px;
+    margin-bottom: 80px;
+}
+
+.textPlacement .bodyText
+{
+    max-width: 800px;
+}
+
+.pic img
+{
+    display: flex;
+    max-width: 100%;
+    height: auto;
+}
+
+.container
+{
+    max-width: 1200px;
+    margin: auto;
+}
+
+.imageContainer
+{
+    display: flex;  
+    justify-content: space-between; 
+    align-items: flex-start; gap: 20px;
+    margin-top: 25px;
+    margin-bottom: 35px;
+}
+
+.imageContainer img 
+{ 
+    width: 48%; 
+    height: 450px; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+}
+
+#contact
+{
+    max-width: 1000px;
+    margin: 50px auto;
+    font-family:'Times New Roman', Times, serif;
+    padding: 20px;
+}
+
+#contact h1
+{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#contact p
+{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.contactForm
+{
+    border-radius:5px;
+    padding: 50px;
+    justify-content: space-between;
+    background-color: #541515;
+    height: auto;
+}
+
+.contactForm label 
+{
+    font-weight: bold;
+    color: white;
+}
+
+.contactForm .textPlacement input,
+.contactForm .textPlacement textarea 
+{
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 14px;
+    background-color: #f2ae31;
+    margin: 0;
+    line-height: 1.6;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    line-height: 1.6;
+    resize: vertical;
+}
+
+.contactForm button
+{
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+a 
+{
+    text-decoration: none; 
+    color: inherit;        
+}
+
+.menu-nav 
+{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-left: 20px;
+    width: 125px;
+    text-align: left;
+    line-height:normal;
+}
+
+#menu-line
+{
+    width: 125px;             /* same width as menu */
+    margin: 20px 0;
+    border: none;
+    height: 1px;
+    background-color: white;
+}
+
+#foodContainer
+{
+    display:flex;
+}
+
+
+#foodContainer .container
+{
+    flex:3;
+}
+
+#foodMenuContainer
+{
+    position: sticky;
+    overflow: hidden;
+    top: 0;
+}
+
+.row > .column {
+  padding: 0 8px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Create four equal columns that floats next to eachother */
+.column {
+  float: left;
+  width: 25%;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  max-width: 1200px;
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Hide the slides by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Caption text */
+.caption-container {
+  text-align: center;
+  background-color: black;
+  padding: 2px 16px;
+  color: white;
+}
+
+img.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+img.hover-shadow {
+  transition: 0.3s;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
