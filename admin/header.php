@@ -2,6 +2,7 @@
 $adminPage = basename($_SERVER['PHP_SELF']);
 $adminTitle = $adminTitle ?? 'Dashboard';
 ?>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <header class="admin-header">
     <div class="admin-header-inner">
         <a class="admin-brand" href="dashboard.php">

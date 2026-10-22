@@ -5,7 +5,7 @@
     --brown-600: #875715;
     --gold: #f3af32;
     --white: #ffffff;
-    --content-width: 1200px;
+    --content-width: 1400px;
     --page-gutter: clamp(16px, 4vw, 48px);
     --section-space: clamp(40px, 7vw, 80px);
 }
@@ -75,12 +75,49 @@ button:hover, .button:hover {
 }
 
 button:focus-visible, .button:focus-visible, a:focus-visible,
-input:focus-visible, textarea:focus-visible {
-    outline: 3px solid var(--white);
+input:focus-visible, select:focus-visible, textarea:focus-visible {
+    outline: 3px solid #ffd978;
     outline-offset: 3px;
 }
 
-header {
+.skip-link {
+    position: fixed;
+    z-index: 10000;
+    top: 8px;
+    left: 8px;
+    padding: 12px 18px;
+    border-radius: 8px;
+    background: var(--white);
+    color: var(--brown-950);
+    font-weight: bold;
+    transform: translateY(-150%);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+    outline-color: var(--gold);
+}
+
+[aria-invalid="true"] {
+    border: 3px solid #ffb4ab;
+}
+
+.form-message:focus {
+    outline: 3px solid #ffd978;
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
+body > header {
     display: flex;
     align-items: center;
     gap: clamp(16px, 2.5vw, 32px);
@@ -98,7 +135,7 @@ header {
     height: auto;
 }
 
-header h1 {
+body > header h1 {
     margin: 0;
     color: var(--gold);
     font-family: "Bodoni MT", "Bodoni Moda", Baskerville, serif;
@@ -116,11 +153,23 @@ header h1 {
 }
 
 .account-links a {
-    padding-block: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 10px 20px;
+    border: 2px solid var(--gold);
+    border-radius: 9px;
+    background: var(--gold);
+    color: var(--brown-950);
+    font-size: 1.05rem;
+    font-weight: bold;
     white-space: nowrap;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .account-links a:hover {
+    background: transparent;
     color: var(--white);
 }
 
@@ -172,6 +221,14 @@ header h1 {
 .textPlacement .bodyText, #subTextPlacement, .subTextPlacement { flex: 1 1 380px; }
 .pic { flex: 1 1 380px; }
 
+.home-intro {
+    display: block;
+}
+
+.home-intro .bodyText {
+    max-width: none;
+}
+
 .pic img {
     display: block;
     width: 100%;
@@ -204,6 +261,108 @@ header h1 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.content-page {
+    padding-bottom: var(--section-space);
+}
+
+.page-intro {
+    width: 100%;
+    margin-bottom: clamp(32px, 5vw, 64px);
+}
+
+.container.page-intro {
+    width: min(100% - (2 * var(--page-gutter)), var(--content-width));
+    margin-inline: auto;
+}
+
+.page-intro .bodyText {
+    max-width: none;
+    margin-bottom: 0;
+    font-size: clamp(1.05rem, 1.35vw, 1.25rem);
+}
+
+.page-eyebrow,
+.place-type {
+    margin: 0 0 8px;
+    color: var(--gold);
+    font-size: 0.82rem;
+    font-weight: bold;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.about-grid,
+.neighbourhood-grid,
+.gallery-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(18px, 3vw, 30px);
+}
+
+.content-card,
+.place-card {
+    padding: clamp(24px, 4vw, 38px);
+    border: 1px solid rgba(243, 175, 50, 0.32);
+    border-radius: 14px;
+    background: var(--brown-800);
+}
+
+.content-card h2,
+.content-card h3,
+.place-card h2 {
+    margin: 0 0 14px;
+    color: var(--gold);
+    font-family: "Bodoni MT", "Bodoni Moda", Baskerville, serif;
+    font-size: clamp(1.4rem, 2.2vw, 2rem);
+}
+
+.content-card p,
+.content-card li,
+.place-card p {
+    font-size: 1.05rem;
+    line-height: 1.65;
+}
+
+.content-card p:last-child,
+.place-card p:last-child { margin-bottom: 0; }
+.content-card ul { margin: 0; padding-left: 1.25rem; }
+
+.neighbourhood-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+.place-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.place-tip {
+    margin-top: auto;
+    padding-top: 18px;
+    color: var(--gold);
+    font-weight: bold;
+}
+
+.neighbourhood-plan,
+.gallery-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(24px, 5vw, 60px);
+    margin-top: clamp(36px, 6vw, 72px);
+    padding: clamp(26px, 5vw, 48px);
+    border-radius: 14px;
+    background: var(--brown-800);
+}
+
+.neighbourhood-plan .sectionTitle,
+.gallery-cta .sectionTitle { margin-top: 0; }
+.neighbourhood-plan .button,
+.gallery-cta .button { flex: 0 0 auto; margin: 0; }
+
+.gallery-highlights { margin-top: var(--section-space); }
+.gallery-highlight-intro { margin-bottom: 28px; }
+.gallery-feature-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.gallery-number { display: block; margin-bottom: 20px; color: var(--gold); font-weight: bold; }
+
 .contact-map {
     display: block;
     width: 100%;
@@ -220,7 +379,7 @@ header h1 {
 }
 
 #contact h1, #contact p { text-align: center; }
-#contact p { max-width: 70ch; margin: 0 auto 30px; }
+#contact p { max-width: none; margin: 0 auto 30px; }
 
 .contactForm {
     padding: clamp(22px, 5vw, 50px);
@@ -267,8 +426,11 @@ header h1 {
 
 #foodMenuContainer {
     position: sticky;
-    top: 20px;
+    top: 16px;
+    z-index: 4;
     align-self: start;
+    padding: 4px 0 18px;
+    background: var(--brown-950);
 }
 
 .menu-nav {
@@ -282,7 +444,86 @@ header h1 {
 }
 
 .menu-nav a { padding-block: 4px; }
-.menu-nav a:hover { color: var(--gold); }
+.menu-nav a:hover,
+.menu-nav a:focus-visible,
+.menu-nav a.is-current {
+    color: var(--gold);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 5px;
+}
+
+.dining-section {
+    scroll-margin-top: 110px;
+}
+
+.dining-content .bodyText {
+    max-width: none;
+}
+
+.dining-section + .dining-section {
+    margin-top: clamp(48px, 7vw, 84px);
+    padding-top: clamp(30px, 4vw, 50px);
+    border-top: 1px solid rgba(243, 175, 50, 0.32);
+}
+
+.dining-image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 8;
+    margin: clamp(22px, 4vw, 38px) 0 0;
+    border-radius: 14px 14px 0 0;
+    object-fit: cover;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.dining-details {
+    margin-top: 0;
+    padding: clamp(22px, 3.5vw, 36px);
+    border: 1px solid rgba(243, 175, 50, 0.3);
+    border-radius: 0 0 14px 14px;
+    background: var(--brown-800);
+}
+
+.dining-details-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(22px, 4vw, 42px);
+}
+
+.dining-detail-group .bodyText:first-child {
+    margin: 0 0 13px;
+    color: var(--gold);
+    font-family: "Bodoni MT", "Bodoni Moda", Baskerville, serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.dining-detail-group ul.bodyText {
+    display: grid;
+    gap: 9px;
+    margin: 0;
+    padding-left: 1.25rem;
+}
+
+.dining-detail-group li {
+    padding-left: 5px;
+}
+
+.dining-detail-group li::marker {
+    color: var(--gold);
+}
+
+.rooms-page > .bodyText,
+.rooms-page .page-intro .bodyText {
+    max-width: none;
+}
+
+.neighbourhood-page .bodyText,
+.gallery-page .bodyText {
+    max-width: none;
+}
+
 
 #menu-line {
     width: 100%;
@@ -382,7 +623,7 @@ header h1 {
     background: transparent;
 }
 
-.carousel-dots button[aria-selected="true"] {
+.carousel-dots button[aria-pressed="true"] {
     background: var(--gold);
     transform: scale(1.2);
 }
@@ -527,12 +768,136 @@ img.hover-shadow {
     box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
 }
 
-footer {
+.site-footer {
     margin-top: var(--section-space);
-    padding: 24px var(--page-gutter);
+    border-top: 1px solid rgba(243, 175, 50, 0.3);
+    background: #210d02;
     color: var(--white);
-    text-align: center;
 }
+
+.footer-cta,
+.footer-main,
+.footer-bottom {
+    width: min(100% - (2 * var(--page-gutter)), var(--content-width));
+    margin-inline: auto;
+}
+
+.footer-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(28px, 6vw, 80px);
+    padding-block: clamp(36px, 6vw, 68px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.footer-eyebrow {
+    margin: 0 0 8px;
+    color: var(--gold);
+    font-size: 0.82rem;
+    font-weight: bold;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.footer-cta h2 {
+    margin: 0 0 10px;
+    font-family: "Bodoni MT", "Bodoni Moda", Baskerville, serif;
+    font-size: clamp(1.65rem, 3vw, 2.7rem);
+}
+
+.footer-cta p:last-child {
+    max-width: 760px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.footer-cta .button {
+    flex: 0 0 auto;
+    margin: 0;
+    border: 2px solid var(--gold);
+    background: var(--gold);
+    color: var(--brown-950);
+    font-weight: bold;
+}
+
+.footer-cta .button:hover {
+    background: transparent;
+    color: var(--white);
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: minmax(260px, 1.6fr) repeat(2, minmax(170px, 0.7fr));
+    gap: clamp(34px, 7vw, 90px);
+    padding-block: clamp(38px, 6vw, 70px);
+}
+
+.footer-brand > p {
+    max-width: 430px;
+    color: rgba(255, 255, 255, 0.76);
+    line-height: 1.65;
+}
+
+.footer-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    color: var(--gold);
+    font-family: "Bodoni MT", "Bodoni Moda", Baskerville, serif;
+    font-size: clamp(1.35rem, 2vw, 1.8rem);
+    font-weight: bold;
+}
+
+.footer-logo img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+}
+
+.footer-location { margin-bottom: 0; }
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 13px;
+}
+
+.footer-links h2 {
+    margin: 0 0 7px;
+    color: var(--gold);
+    font-family: "Bodoni MT", "Bodoni Moda", Baskerville, serif;
+    font-size: 1.25rem;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible,
+.footer-bottom a:hover,
+.footer-bottom a:focus-visible {
+    color: var(--gold);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    padding-block: 22px;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 0.92rem;
+}
+
+.footer-bottom p { margin: 0; }
+.footer-bottom a { color: var(--gold); }
 
 .auth-page {
     display: grid;
@@ -1293,7 +1658,7 @@ footer {
 }
 
 @media (max-width: 900px) {
-    header { min-height: 100px; }
+    body > header { min-height: 100px; }
     #navBar ul { flex-wrap: wrap; }
     #navBar li { flex: 1 1 30%; }
     .textPlacement { gap: 28px; }
@@ -1301,14 +1666,34 @@ footer {
     #foodContainer { grid-template-columns: 1fr; }
 
     #foodMenuContainer {
-        position: static;
-        padding: 14px 0;
+        position: sticky;
+        top: 0;
+        z-index: 8;
+        margin-inline: calc(-1 * var(--page-gutter));
+        padding: 12px var(--page-gutter);
         border-block: 1px solid rgba(255, 255, 255, 0.5);
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28);
     }
 
     #menu-line { display: none; }
-    .menu-nav { flex-flow: row wrap; gap: 8px 20px; }
-    .menu-nav a { flex: 1 1 190px; }
+    .menu-nav {
+        flex-flow: row nowrap;
+        gap: 10px;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        scrollbar-width: thin;
+    }
+    .menu-nav a {
+        flex: 0 0 auto;
+        padding: 9px 13px;
+        border: 1px solid rgba(243, 175, 50, 0.45);
+        border-radius: 999px;
+        white-space: nowrap;
+    }
+    .dining-section { scroll-margin-top: 92px; }
+    .neighbourhood-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .footer-main { grid-template-columns: 1.4fr repeat(2, 1fr); gap: 34px; }
+    .dining-details-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .carousel-slide img { height: clamp(300px, 60vw, 520px); }
     .booking-search-form { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .booking-search-form button { width: 100%; }
@@ -1322,7 +1707,7 @@ footer {
 @media (max-width: 640px) {
     :root { --page-gutter: 18px; }
 
-    header {
+    body > header {
         display: grid;
         grid-template-columns: auto 1fr;
         gap: 8px 14px;
@@ -1330,15 +1715,21 @@ footer {
         padding-block: 12px;
     }
 
-    #logo { grid-row: 1 / 3; }
+    #logo { grid-row: 1; }
     #logo img { width: 76px; }
-    header h1 { font-size: clamp(1.45rem, 7vw, 2rem); }
+    body > header h1 { font-size: clamp(1.45rem, 7vw, 2rem); }
 
     .account-links {
+        grid-column: 1 / -1;
         justify-content: flex-start;
-        gap: 16px;
+        gap: 10px;
         margin-left: 0;
-        font-size: 0.9rem;
+        font-size: 0.95rem;
+    }
+
+    .account-links a {
+        min-height: 44px;
+        padding: 9px 18px;
     }
 
     #navBar { overflow-x: auto; scrollbar-width: thin; }
@@ -1398,8 +1789,20 @@ footer {
     .admin-nav { justify-content: flex-start; }
     .admin-status-form form { align-items: stretch; flex-direction: column; }
     .admin-status-form button { width: 100%; }
-    .menu-nav { flex-direction: column; }
-    .menu-nav a { flex-basis: auto; }
+    .about-grid,
+    .neighbourhood-grid,
+    .gallery-feature-grid { grid-template-columns: 1fr; }
+    .neighbourhood-plan,
+    .gallery-cta { align-items: stretch; flex-direction: column; }
+    .neighbourhood-plan .button,
+    .gallery-cta .button { width: 100%; }
+    .footer-cta { align-items: stretch; flex-direction: column; }
+    .footer-cta .button { width: 100%; }
+    .footer-main { grid-template-columns: 1fr; gap: 34px; }
+    .footer-brand > p { max-width: none; }
+    .footer-bottom { align-items: flex-start; flex-direction: column; gap: 10px; }
+    .dining-image { aspect-ratio: 4 / 3; }
+    .dining-details-grid { grid-template-columns: 1fr; }
     .modal { padding: 50px 0 0; }
     .modal-content { width: 100%; }
 

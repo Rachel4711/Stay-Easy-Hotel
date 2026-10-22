@@ -1,6 +1,7 @@
 <?php
 $currentPage = basename($_SERVER['PHP_SELF']);
 $navigationItems = [
+	'HomePage.php' => 'Home',
 	'search.php' => 'Book a Room',
 	'about.php' => 'About',
 	'contact.php' => 'Contact Us',
@@ -10,6 +11,7 @@ $navigationItems = [
 	'gallery.php' => 'Gallery',
 ];
 ?>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <header>
 	<div id="logo">
 		<a href="HomePage.php"><img src="assets/Stay_Easy_Hotel_Logo.png" alt="Stay Easy Hotel home"></a>

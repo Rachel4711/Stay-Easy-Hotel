@@ -11,7 +11,7 @@
     <body>
         <?php include 'includes/header.php'; ?>
 
-        <div class="container">
+        <main id="main-content" class="container" tabindex="-1">
             <iframe class="contact-map" title="Map showing Stay Easy Hotel location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.8559477038607!2d101.6877037!3d3.1327426999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc49c1c620dcfd%3A0x8be53a3940f72fea!2sEasy%20Hotel%20KL%20Sentral!5e0!3m2!1sen!2smy!4v1769528711018!5m2!1sen!2smy" 
                 height="450" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
             </iframe>
@@ -40,7 +40,7 @@
                 </form>
             </section>
             
-        </div>
+        </main>
        
 
 

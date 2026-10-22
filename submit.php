@@ -22,7 +22,7 @@ $isValid = $name !== '' && filter_var($email, FILTER_VALIDATE_EMAIL) && $message
     <body>
         <?php include 'includes/header.php'; ?>
 
-        <main class="container form-result">
+        <main id="main-content" class="container form-result" tabindex="-1">
             <?php if ($isValid): ?>
                 <h1 class="sectionTitle">Thank You, <?= htmlspecialchars($name, ENT_QUOTES, 'UTF-8') ?></h1>
                 <p class="bodyText">Your form is valid. Message delivery and database storage will be connected during the backend phase.</p>

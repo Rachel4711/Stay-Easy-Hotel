@@ -40,7 +40,7 @@ $recentBookings = $pdo->query(
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Admin Overview | Stay Easy Hotel</title><link rel="stylesheet" href="../StayEasyStyle.css"></head>
 <body class="admin-body">
 <?php include __DIR__ . '/header.php'; ?>
-<main class="admin-container">
+<main id="main-content" class="admin-container" tabindex="-1">
     <div class="admin-page-heading"><div><p>Administrator dashboard</p><h1>Overview</h1></div><span><?= date('j F Y', strtotime($today)) ?></span></div>
     <section class="admin-stats" aria-label="Hotel statistics">
         <article><span>Total rooms</span><strong><?= $statistics['rooms'] ?></strong></article>

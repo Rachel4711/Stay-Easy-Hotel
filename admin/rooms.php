@@ -37,7 +37,7 @@ $rooms = database()->query(
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Manage Rooms | Stay Easy Hotel</title><link rel="stylesheet" href="../StayEasyStyle.css"></head>
 <body class="admin-body"><?php include __DIR__ . '/header.php'; ?>
-<main class="admin-container">
+<main id="main-content" class="admin-container" tabindex="-1">
     <div class="admin-page-heading"><div><p>Physical room inventory</p><h1>Rooms</h1></div><strong><?= count($rooms) ?> rooms</strong></div>
     <?php if ($message): ?><div class="form-message success-message"><?= htmlspecialchars($message, ENT_QUOTES, 'UTF-8') ?></div><?php endif; ?>
     <?php if ($error): ?><div class="form-message error-message"><?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8') ?></div><?php endif; ?>

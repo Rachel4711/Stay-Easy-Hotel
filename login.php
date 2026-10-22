@@ -66,23 +66,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <body>
         <?php include 'includes/header.php'; ?>
 
-        <main class="auth-page container">
+        <main id="main-content" class="auth-page container" tabindex="-1">
             <section class="auth-card auth-card-small">
                 <h1 class="sectionTitle">Log In</h1>
                 <p class="bodyText">Welcome back to Stay Easy Hotel.</p>
 
                 <?php if ($error !== ''): ?>
-                    <div class="form-message error-message" role="alert"><?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8') ?></div>
+                    <div id="login-errors" class="form-message error-message" role="alert" tabindex="-1"><?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8') ?></div>
                 <?php endif; ?>
 
-                <form class="auth-form" method="post" action="login.php">
+                <form class="auth-form" method="post" action="login.php" <?= $error !== '' ? 'aria-describedby="login-errors"' : '' ?>>
                     <div class="form-field">
                         <label for="email">Email address</label>
-                        <input id="email" name="email" type="email" maxlength="254" autocomplete="email" value="<?= htmlspecialchars($email, ENT_QUOTES, 'UTF-8') ?>" required>
+                        <input id="email" name="email" type="email" maxlength="254" autocomplete="email" value="<?= htmlspecialchars($email, ENT_QUOTES, 'UTF-8') ?>" <?= $error !== '' ? 'aria-invalid="true"' : '' ?> required>
                     </div>
                     <div class="form-field">
                         <label for="password">Password</label>
-                        <input id="password" name="password" type="password" autocomplete="current-password" required>
+                        <input id="password" name="password" type="password" autocomplete="current-password" <?= $error !== '' ? 'aria-invalid="true"' : '' ?> required>
                     </div>
                     <button type="submit">Log In</button>
                 </form>

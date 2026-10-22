@@ -75,7 +75,7 @@ try {
     <body>
         <?php include 'includes/header.php'; ?>
 
-        <main class="auth-page container">
+        <main id="main-content" class="auth-page container" tabindex="-1">
             <section class="auth-card account-card">
                 <h1 class="sectionTitle">My Account</h1>
 

@@ -12,12 +12,15 @@
         <?php include 'includes/header.php'; ?>
 
         <div id="banner">
-            <img src="assets/banner1.jpg" alt="Stay Easy Hotel">
+            <img src="assets/banner1.jpg" alt="Stay Easy Hotel exterior and welcoming entrance">
         </div>
 
-        <div class="container">
-            <h1 class="sectionTitle">Hotel Gallery</h1>
-            <p class="bodyText">Explore our rooms, facilities, and surroundings.</p>
+        <main id="main-content" class="container content-page gallery-page" tabindex="-1">
+            <header class="page-intro">
+                <p class="page-eyebrow">A glimpse of your stay</p>
+                <h1 class="sectionTitle">Hotel Gallery</h1>
+                <p class="bodyText">Step inside Stay Easy Hotel and explore the comfortable rooms, relaxing spaces, and welcoming atmosphere waiting for you.</p>
+            </header>
 
             <section class="carousel" aria-label="Hotel gallery carousel" tabindex="0">
                 <div class="carousel-viewport">
@@ -44,15 +47,48 @@
                 <button class="carousel-control carousel-previous" type="button" aria-label="Previous carousel image">&#10094;</button>
                 <button class="carousel-control carousel-next" type="button" aria-label="Next carousel image">&#10095;</button>
 
-                <div class="carousel-dots" role="tablist" aria-label="Choose carousel image">
-                    <button type="button" role="tab" aria-label="Show image 1" aria-selected="true"></button>
-                    <button type="button" role="tab" aria-label="Show image 2" aria-selected="false"></button>
-                    <button type="button" role="tab" aria-label="Show image 3" aria-selected="false"></button>
-                    <button type="button" role="tab" aria-label="Show image 4" aria-selected="false"></button>
+                <div class="carousel-dots" role="group" aria-label="Choose carousel image">
+                    <button type="button" aria-label="Show image 1" aria-pressed="true"></button>
+                    <button type="button" aria-label="Show image 2" aria-pressed="false"></button>
+                    <button type="button" aria-label="Show image 3" aria-pressed="false"></button>
+                    <button type="button" aria-label="Show image 4" aria-pressed="false"></button>
                 </div>
                 <p class="carousel-status" aria-live="polite">Image 1 of 4</p>
             </section>
-            </div>
+
+            <section class="gallery-highlights" aria-labelledby="gallery-highlights-title">
+                <div class="gallery-highlight-intro">
+                    <p class="page-eyebrow">Made for easy stays</p>
+                    <h2 class="sectionTitle" id="gallery-highlights-title">Comfort in Every Corner</h2>
+                    <p class="bodyText">From a quiet room after a busy day to an evening beside the pool, every space is designed to help you settle in and slow down.</p>
+                </div>
+                <div class="gallery-feature-grid">
+                    <article class="content-card">
+                        <span class="gallery-number">01</span>
+                        <h3>Rest Well</h3>
+                        <p>Thoughtfully arranged rooms, comfortable beds, and useful amenities make it easy to recharge.</p>
+                    </article>
+                    <article class="content-card">
+                        <span class="gallery-number">02</span>
+                        <h3>Take It Easy</h3>
+                        <p>Relax by the pool or find a comfortable corner to pause between plans.</p>
+                    </article>
+                    <article class="content-card">
+                        <span class="gallery-number">03</span>
+                        <h3>Explore More</h3>
+                        <p>A convenient city location keeps transport, dining, shopping, and local culture within reach.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="gallery-cta">
+                <div>
+                    <p class="page-eyebrow">Ready when you are</p>
+                    <h2 class="sectionTitle">Find Your Place to Unwind</h2>
+                    <p class="bodyText">Compare our room options and choose the space that suits your next trip.</p>
+                </div>
+                <a class="button" href="search.php">Check Room Availability</a>
+            </section>
 
             <div id="myModal" class="modal" role="dialog" aria-modal="true" aria-label="Hotel image gallery" aria-hidden="true">
                 <button class="close" type="button" onclick="closeModal()" aria-label="Close gallery">&times;</button>
@@ -94,14 +130,17 @@
                 </div>
                 </div>
             </div>
-        </div>
+        </main>
 
         <?php include 'includes/footer.php'; ?>
 
 <script>
+    var lastFocusedElement = null;
+
     // Open the Modal
     function openModal(imageNumber) {
         var modal = document.getElementById("myModal");
+        lastFocusedElement = document.activeElement;
         currentSlide(imageNumber || carouselIndex + 1);
         modal.style.display = "flex";
         modal.setAttribute("aria-hidden", "false");
@@ -115,6 +154,7 @@
         modal.style.display = "none";
         modal.setAttribute("aria-hidden", "true");
         document.body.classList.remove("modal-open");
+        if (lastFocusedElement) lastFocusedElement.focus();
     }
 
     var modalSlideIndex = 1;
@@ -161,7 +201,7 @@
         carouselIndex = (index + carouselSlides.length) % carouselSlides.length;
         carouselTrack.style.transform = "translateX(-" + (carouselIndex * 100) + "%)";
         carouselDots.forEach(function (dot, dotIndex) {
-            dot.setAttribute("aria-selected", dotIndex === carouselIndex ? "true" : "false");
+            dot.setAttribute("aria-pressed", dotIndex === carouselIndex ? "true" : "false");
         });
         carouselStatus.textContent = "Image " + (carouselIndex + 1) + " of " + carouselSlides.length;
     }
@@ -222,10 +262,23 @@
     startAutoplay();
 
     document.addEventListener("keydown", function (event) {
-        if (document.getElementById("myModal").style.display !== "flex") return;
+        var modal = document.getElementById("myModal");
+        if (modal.style.display !== "flex") return;
         if (event.key === "Escape") closeModal();
         if (event.key === "ArrowLeft") plusSlides(-1);
         if (event.key === "ArrowRight") plusSlides(1);
+        if (event.key === "Tab") {
+            var focusable = Array.from(modal.querySelectorAll("button:not([disabled]), [href], [tabindex]:not([tabindex='-1'])"));
+            var first = focusable[0];
+            var last = focusable[focusable.length - 1];
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first.focus();
+            }
+        }
     });
 
     document.getElementById("myModal").addEventListener("click", function (event) {

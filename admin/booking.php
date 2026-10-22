@@ -44,7 +44,7 @@ $booking = $statement->fetch();
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Booking Details | Stay Easy Hotel</title><link rel="stylesheet" href="../StayEasyStyle.css"></head>
 <body class="admin-body"><?php include __DIR__ . '/header.php'; ?>
-<main class="admin-container">
+<main id="main-content" class="admin-container" tabindex="-1">
     <a class="admin-back-link" href="bookings.php">← Back to bookings</a>
     <?php if (!$booking): ?><div class="form-message error-message">Booking not found.</div>
     <?php else: ?>

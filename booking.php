@@ -189,7 +189,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$errors) {
     </head>
     <body>
         <?php include 'includes/header.php'; ?>
-        <main class="container booking-page">
+        <main id="main-content" class="container booking-page" tabindex="-1">
             <h1 class="sectionTitle">Confirm Your Booking</h1>
 
             <?php if ($errors): ?>

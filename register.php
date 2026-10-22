@@ -95,13 +95,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <body>
         <?php include 'includes/header.php'; ?>
 
-        <main class="auth-page container">
+        <main id="main-content" class="auth-page container" tabindex="-1">
             <section class="auth-card">
                 <h1 class="sectionTitle">Create Your Account</h1>
                 <p class="bodyText">Register to manage your future hotel bookings.</p>
 
                 <?php if ($errors): ?>
-                    <div class="form-message error-message" role="alert">
+                    <div id="registration-errors" class="form-message error-message" role="alert" tabindex="-1">
                         <ul>
                             <?php foreach ($errors as $error): ?>
                                 <li><?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8') ?></li>
@@ -110,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                 <?php endif; ?>
 
-                <form class="auth-form" method="post" action="register.php">
+                <form class="auth-form" method="post" action="register.php" <?= $errors ? 'aria-describedby="registration-errors"' : '' ?>>
                     <div class="form-grid">
                         <div class="form-field">
                             <label for="first_name">First name</label>

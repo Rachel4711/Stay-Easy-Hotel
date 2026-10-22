@@ -12,15 +12,18 @@
         <?php include 'includes/header.php'; ?>
 
         <div id="banner">
-            <img src="assets/banner3.jpg" alt="Stay Easy Hotel">
+            <img src="assets/banner3.jpg" alt="A prepared guest room at Stay Easy Hotel">
         </div>
 
-        <div class="container">
-            <h1 class="sectionTitle">Our Rooms At Stay Easy Hotel</h1>
+        <main id="main-content" class="container content-page rooms-page" tabindex="-1">
+            <header class="page-intro">
+            <p class="page-eyebrow">A room for every journey</p>
+            <h1 class="sectionTitle">Our Rooms at Stay Easy Hotel</h1>
             <p class="bodyText">
                 At Stay Easy Hotel, each room is thoughtfully designed to give you a comfortable, stress-free stay. 
                 Whether you’re traveling solo, as a couple, with friends or with family, we have a space that feels just right for you.
             </p>
+            </header>
 
             <h2 class="sectionTitle room-title">Easy Solo Retreat</h2>
             <h3 class="bodyText room-audience">Perfect for: Solo travelers &amp; business guests</h3>
@@ -31,7 +34,7 @@
 
             <div class="textPlacement">
                 <div class="pic room-image">
-                        <img src="assets/pic4.jpg" alt="Stay Easy Hotel">
+                        <img src="assets/pic4.jpg" alt="Easy Solo Retreat with a single bed and work area">
                 </div>
 
                 <div class="subTextPlacement">
@@ -67,7 +70,7 @@
 
             <div class="textPlacement">
                 <div class="pic room-image">
-                            <img src="assets/pic5.jpg" alt="Stay Easy Hotel">
+                            <img src="assets/pic5.jpg" alt="Easy Comfort Room with a queen-size bed">
                 </div>
 
                 <div class="subTextPlacement">
@@ -96,7 +99,7 @@
 
             <div class="textPlacement">
                 <div class="pic room-image">
-                            <img src="assets/pic6.jpg" alt="Stay Easy Hotel">
+                            <img src="assets/pic6.jpg" alt="Easy Family Haven with queen-size and single beds">
                 </div>
 
                 <div class="subTextPlacement">
@@ -125,7 +128,7 @@
 
             <div class="textPlacement">
                 <div class="pic room-image">
-                            <img src="assets/pic7.jpg" alt="Stay Easy Hotel">
+                            <img src="assets/pic7.jpg" alt="Easy Premium Retreat with a king-size bed and lounge seating">
                 </div>
 
                 <div class="subTextPlacement">
@@ -157,7 +160,7 @@
             <p class="bodyText">Come and reserve your room now! Stay Easy Hotel ensures every detail is thoughtfully arranged—so you can relax, reset, and recharge.</p>
             <a class="button" href="search.php">Check Room Availability</a>
 
-        </div>
+        </main>
 
         <?php include 'includes/footer.php'; ?>
     </body>

@@ -49,7 +49,7 @@ if ($reference === '') {
     </head>
     <body>
         <?php include 'includes/header.php'; ?>
-        <main class="container booking-page">
+        <main id="main-content" class="container booking-page" tabindex="-1">
             <?php if ($error !== ''): ?>
                 <div class="form-message error-message" role="alert"><?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8') ?></div>
                 <a class="button" href="search.php">Search Rooms</a>

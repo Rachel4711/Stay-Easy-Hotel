@@ -74,7 +74,7 @@ if ($searched) {
     <body>
         <?php include 'includes/header.php'; ?>
 
-        <main class="container booking-page">
+        <main id="main-content" class="container booking-page" tabindex="-1">
             <section class="booking-search-panel" aria-labelledby="room-search-title">
                 <h1 class="sectionTitle" id="room-search-title">Search Available Rooms</h1>
                 <form class="booking-search-form" method="get" action="search.php">

@@ -44,7 +44,7 @@ $bookings = $statement->fetchAll();
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Manage Bookings | Stay Easy Hotel</title><link rel="stylesheet" href="../StayEasyStyle.css"></head>
 <body class="admin-body">
 <?php include __DIR__ . '/header.php'; ?>
-<main class="admin-container">
+<main id="main-content" class="admin-container" tabindex="-1">
     <div class="admin-page-heading"><div><p>Reservations</p><h1>Bookings</h1></div><strong><?= count($bookings) ?> result<?= count($bookings) === 1 ? '' : 's' ?></strong></div>
     <form class="admin-filters" method="get" action="bookings.php">
         <div class="form-field"><label for="search">Reference, guest, or email</label><input id="search" name="search" type="search" value="<?= htmlspecialchars($search, ENT_QUOTES, 'UTF-8') ?>"></div>

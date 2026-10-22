@@ -12,34 +12,11 @@
         <?php include 'includes/header.php'; ?>
 
         <div id="banner">
-            <img src="assets/banner1.jpg" alt="Stay Easy Hotel">
+            <img src="assets/banner1.jpg" alt="Stay Easy Hotel exterior and welcoming entrance">
         </div>
 
-        <div class="container">
-            <section class="booking-search-panel" aria-labelledby="booking-search-title">
-                <h1 class="sectionTitle" id="booking-search-title">Find Your Stay</h1>
-                <form class="booking-search-form" action="search.php" method="get">
-                    <div class="form-field">
-                        <label for="check_in">Check-in</label>
-                        <input type="date" id="check_in" name="check_in" min="<?= date('Y-m-d') ?>" required>
-                    </div>
-                    <div class="form-field">
-                        <label for="check_out">Check-out</label>
-                        <input type="date" id="check_out" name="check_out" min="<?= date('Y-m-d') ?>" required>
-                    </div>
-                    <div class="form-field">
-                        <label for="adults">Adults</label>
-                        <input type="number" id="adults" name="adults" min="1" max="10" value="1" required>
-                    </div>
-                    <div class="form-field">
-                        <label for="children">Children</label>
-                        <input type="number" id="children" name="children" min="0" max="10" value="0" required>
-                    </div>
-                    <button type="submit">Search Rooms</button>
-                </form>
-            </section>
-
-            <div class="textPlacement">
+        <main id="main-content" class="container" tabindex="-1">
+            <div class="textPlacement home-intro">
                 <h1 class="sectionTitle">
                     Stay Easy Hotel |<br> Relax. Reset. Recharge
                 </h1>
@@ -65,7 +42,7 @@
                 </div>
 
                 <div class="pic">
-                    <img src="assets/pic1.jpg" alt="Stay Easy Hotel">
+                    <img src="assets/pic1.jpg" alt="Comfortable lounge seating inside Stay Easy Hotel">
                 </div>
             </div>
 
@@ -79,7 +56,7 @@
             
 
             <a class="button" href="room.php">Explore Our Rooms</a>
-        </div>
+        </main>
 
         <?php include 'includes/footer.php'; ?>
     </body>

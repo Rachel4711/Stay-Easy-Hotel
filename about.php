@@ -12,48 +12,45 @@
         <?php include 'includes/header.php'; ?>
 
          <div id="banner">
-            <img src="assets/banner2.jpg" alt="Stay Easy Hotel">
+            <img src="assets/banner2.jpg" alt="Bright and welcoming Stay Easy Hotel interior">
         </div>
 
-       <div class="container">
-        <h1 class="sectionTitle">Stay Easy Hotel</h1>
-        <h2 class="sectionTitle">Who We Are</h2>
-        <p class="bodyText">
-            At Stay Easy Hotel, we believe that a comfortable stay should be simple, stress-free, and welcoming. 
-            Designed for travelers who value convenience and comfort, our hotel offers a relaxing space where you can unwind and feel at home, whether you’re staying for one night or an extended visit.
-        </p>
-        <hr>
+       <main id="main-content" class="container content-page" tabindex="-1">
+        <header class="page-intro">
+            <p class="page-eyebrow">Relax. Reset. Recharge.</p>
+            <h1 class="sectionTitle">About Stay Easy Hotel</h1>
+            <p class="bodyText">
+                We believe a comfortable stay should be simple, stress-free, and welcoming. Designed for travellers who value convenience and comfort, our hotel offers a relaxing place to feel at home—whether you are staying for one night or an extended visit.
+            </p>
+        </header>
         <div class="imageContainer">
-            <img src="assets/pic2.jpg" alt="Stay Easy Hotel">
-            <img src="assets/pic3.jpg" alt="Stay Easy Hotel">
+            <img src="assets/pic2.jpg" alt="Stay Easy Hotel guest lounge">
+            <img src="assets/pic3.jpg" alt="Stay Easy Hotel reception and seating area">
         </div>
-        <h2 class="sectionTitle">Our Story</h2>
-        <p class="bodyText">
-            Stay Easy Hotel was created with one goal in mind: to make every stay effortless. 
-            We understand that traveling can be tiring, which is why we focus on providing cozy rooms, thoughtful amenities, and friendly service that meets your needs without complications. 
-            From check-in to check-out, we aim to make your experience smooth and enjoyable.
-        </p>
-        <hr>
-        <h2 class="sectionTitle">Our Commitment</h2>
-        <p class="bodyText">
-            We are committed to delivering quality service with a personal touch. Our dedicated team is always ready to assist you, ensuring your stay is not only comfortable but also memorable. 
-            At Stay Easy Hotel, we believe that small details make a big difference, and we strive to exceed expectations through warm hospitality and reliable service.
-        </p>
-        <hr>
-        <h2 class="sectionTitle">Why Choose Stay Easy Hotel</h2>
-        <ul class = "bodyText">
-                <li>Comfortable and thoughtfully designed rooms</li>
-                <li>Friendly and attentive staff</li>
-                <li>Convenient location and modern amenities</li>
-                <li>A calm, welcoming atmosphere for every guest</li>
-        </ul>
-        <hr>
-        <h2 class="sectionTitle">Our Promise</h2>
-        <p class="bodyText">
-            At Stay Easy Hotel, comfort meets convenience. 
-            We promise a stay that allows you to relax, recharge, and focus on what matters most—enjoying your journey and creating meaningful memories.
-        </p>
-       </div>
+        <div class="about-grid">
+            <article class="content-card">
+                <h2>Our Story</h2>
+                <p>Stay Easy Hotel was created with one goal: to make every stay effortless. We provide cosy rooms, thoughtful amenities, and friendly service without unnecessary complications.</p>
+            </article>
+            <article class="content-card">
+                <h2>Our Commitment</h2>
+                <p>Our team delivers reliable service with a personal touch. We pay attention to the small details that help every guest feel comfortable, supported, and welcome.</p>
+            </article>
+            <article class="content-card">
+                <h2>Why Stay With Us</h2>
+                <ul>
+                    <li>Comfortable, thoughtfully designed rooms</li>
+                    <li>Friendly and attentive staff</li>
+                    <li>Convenient location and modern amenities</li>
+                    <li>A calm atmosphere for every guest</li>
+                </ul>
+            </article>
+            <article class="content-card">
+                <h2>Our Promise</h2>
+                <p>Comfort meets convenience here. We give you room to relax, recharge, and focus on enjoying your journey and creating meaningful memories.</p>
+            </article>
+        </div>
+       </main>
        
 
 
