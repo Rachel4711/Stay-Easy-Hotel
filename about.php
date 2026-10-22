@@ -1,23 +1,15 @@
+<?php require_once __DIR__ . '/includes/session.php'; ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Stay Easy Hotel: About Page</title>
         <link rel="stylesheet" href="StayEasyStyle.css">
     </head>
 
     <body>
         <?php include 'includes/header.php'; ?>
-
-        <div id = "navBar">
-            <ul>
-                <li><a href="about.php">About</a></li>
-                <li><a href="contact.php">Contact Us</a></li>
-                <li><a href="room.php">Room Tour</a></li>
-                <li><a href="food.php">Eat & Drink</a></li>
-                <li><a href="neighbourhood.php">Neighbourhood</a></li>
-                <li><a href="gallery.php">Gallery</a></li>
-            </ul>
-        </div>
 
          <div id="banner">
             <img src="assets/banner2.jpg" alt="Stay Easy Hotel">
@@ -66,3 +58,5 @@
 
 
         <?php include 'includes/footer.php'; ?>
+    </body>
+</html>

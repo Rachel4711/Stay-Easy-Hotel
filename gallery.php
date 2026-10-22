@@ -1,125 +1,133 @@
+<?php require_once __DIR__ . '/includes/session.php'; ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>Stay Easy Hotel: Home Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Stay Easy Hotel: Gallery</title>
         <link rel="stylesheet" href="StayEasyStyle.css">
     </head>
 
     <body>
         <?php include 'includes/header.php'; ?>
 
-        <div id = "navBar">
-            <ul>
-                <li><a href="about.php">About</a></li>
-                <li><a href="contact.php">Contact Us</a></li>
-                <li><a href="room.php">Room Tour</a></li>
-                <li><a href="food.php">Eat & Drink</a></li>
-                <li><a href="neighbourhood.php">Neighbourhood</a></li>
-                <li><a href="gallery.php">Gallery</a></li>
-            </ul>
-        </div>
-
         <div id="banner">
             <img src="assets/banner1.jpg" alt="Stay Easy Hotel">
         </div>
 
         <div class="container">
-            <!-- Images used to open the lightbox -->
-            <div class="row">
-            <div class="column">
-                <img src="assets/img1.jpg" onclick="openModal();currentSlide(1)" class="hover-shadow">
-            </div>
-            <div class="column">
-                <img src="assets/img2.jpg" onclick="openModal();currentSlide(2)" class="hover-shadow">
-            </div>
-            <div class="column">
-                <img src="assets/img3.jpg" onclick="openModal();currentSlide(3)" class="hover-shadow">
-            </div>
-            <div class="column">
-                <img src="assets/img4.jpg" onclick="openModal();currentSlide(4)" class="hover-shadow">
-            </div>
+            <h1 class="sectionTitle">Hotel Gallery</h1>
+            <p class="bodyText">Explore our rooms, facilities, and surroundings.</p>
+
+            <section class="carousel" aria-label="Hotel gallery carousel" tabindex="0">
+                <div class="carousel-viewport">
+                    <div class="carousel-track">
+                        <button class="carousel-slide" type="button" onclick="openModal(1)" aria-label="Enlarge guest room image">
+                            <img src="assets/img_wide1.jpg" alt="Spacious Stay Easy Hotel guest room">
+                            <span class="carousel-caption">Comfortable guest rooms</span>
+                        </button>
+                        <button class="carousel-slide" type="button" onclick="openModal(2)" aria-label="Enlarge hotel pool image">
+                            <img src="assets/img_wide2.jpg" alt="Stay Easy Hotel swimming pool and exterior">
+                            <span class="carousel-caption">Relax by the pool</span>
+                        </button>
+                        <button class="carousel-slide" type="button" onclick="openModal(3)" aria-label="Enlarge night pool image">
+                            <img src="assets/img_wide3.jpg" alt="Stay Easy Hotel pool area at night">
+                            <span class="carousel-caption">Evenings at Stay Easy</span>
+                        </button>
+                        <button class="carousel-slide" type="button" onclick="openModal(4)" aria-label="Enlarge hotel exterior image">
+                            <img src="assets/img_wide4.jpg" alt="Stay Easy Hotel building exterior">
+                            <span class="carousel-caption">Welcome to Stay Easy Hotel</span>
+                        </button>
+                    </div>
+                </div>
+
+                <button class="carousel-control carousel-previous" type="button" aria-label="Previous carousel image">&#10094;</button>
+                <button class="carousel-control carousel-next" type="button" aria-label="Next carousel image">&#10095;</button>
+
+                <div class="carousel-dots" role="tablist" aria-label="Choose carousel image">
+                    <button type="button" role="tab" aria-label="Show image 1" aria-selected="true"></button>
+                    <button type="button" role="tab" aria-label="Show image 2" aria-selected="false"></button>
+                    <button type="button" role="tab" aria-label="Show image 3" aria-selected="false"></button>
+                    <button type="button" role="tab" aria-label="Show image 4" aria-selected="false"></button>
+                </div>
+                <p class="carousel-status" aria-live="polite">Image 1 of 4</p>
+            </section>
             </div>
 
-            <!-- The Modal/Lightbox -->
-            <div id="myModal" class="modal">
-            <span class="close cursor" onclick="closeModal()">&times;</span>
-            <div class="modal-content">
+            <div id="myModal" class="modal" role="dialog" aria-modal="true" aria-label="Hotel image gallery" aria-hidden="true">
+                <button class="close" type="button" onclick="closeModal()" aria-label="Close gallery">&times;</button>
+                <div class="modal-content">
 
                 <div class="mySlides">
-                <div class="numbertext">1 / 4</div>
-                <img src="assets/img_wide1.jpg" style="width:100%">
+                    <div class="numbertext">1 / 4</div>
+                    <img src="assets/img_wide1.jpg" alt="Spacious Stay Easy Hotel guest room enlarged">
                 </div>
 
                 <div class="mySlides">
                 <div class="numbertext">2 / 4</div>
-                <img src="assets/img_wide2.jpg" style="width:100%">
+                <img src="assets/img_wide2.jpg" alt="Stay Easy Hotel gallery image 2 enlarged">
                 </div>
 
                 <div class="mySlides">
                 <div class="numbertext">3 / 4</div>
-                <img src="assets/img_wide3.jpg" style="width:100%">
+                <img src="assets/img_wide3.jpg" alt="Stay Easy Hotel gallery image 3 enlarged">
                 </div>
 
                 <div class="mySlides">
                 <div class="numbertext">4 / 4</div>
-                <img src="assets/img_wide4.jpg" style="width:100%">
+                <img src="assets/img_wide4.jpg" alt="Stay Easy Hotel gallery image 4 enlarged">
                 </div>
 
-                <!-- Next/previous controls -->
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                <button class="prev" type="button" onclick="plusSlides(-1)" aria-label="Previous image">&#10094;</button>
+                <button class="next" type="button" onclick="plusSlides(1)" aria-label="Next image">&#10095;</button>
 
                 <!-- Caption text -->
                 <div class="caption-container">
                 <p id="caption"></p>
                 </div>
 
-                <!-- Thumbnail image controls -->
-                <div class="column">
-                <img class="demo" src="img1.jpg" onclick="currentSlide(1)" alt="Nature">
+                <div class="lightbox-thumbnails" aria-label="Choose gallery image">
+                    <button type="button" onclick="currentSlide(1)" aria-label="Show image 1"><img class="demo" src="assets/img1.jpg" alt="" data-caption="Guest room"></button>
+                    <button type="button" onclick="currentSlide(2)" aria-label="Show image 2"><img class="demo" src="assets/img2.jpg" alt="" data-caption="Hotel pool and exterior"></button>
+                    <button type="button" onclick="currentSlide(3)" aria-label="Show image 3"><img class="demo" src="assets/img3.jpg" alt="" data-caption="Pool area at night"></button>
+                    <button type="button" onclick="currentSlide(4)" aria-label="Show image 4"><img class="demo" src="assets/img4.jpg" alt="" data-caption="Hotel building exterior"></button>
                 </div>
-
-                <div class="column">
-                <img class="demo" src="img2.jpg" onclick="currentSlide(2)" alt="Snow">
                 </div>
-
-                <div class="column">
-                <img class="demo" src="img3.jpg" onclick="currentSlide(3)" alt="Mountains">
-                </div>
-
-                <div class="column">
-                <img class="demo" src="img4.jpg" onclick="currentSlide(4)" alt="Lights">
-                </div>
-            </div>
             </div>
         </div>
 
         <?php include 'includes/footer.php'; ?>
-    </body>
-</html>
 
 <script>
     // Open the Modal
-    function openModal() {
-    document.getElementById("myModal").style.display = "block";
+    function openModal(imageNumber) {
+        var modal = document.getElementById("myModal");
+        currentSlide(imageNumber || carouselIndex + 1);
+        modal.style.display = "flex";
+        modal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("modal-open");
+        modal.querySelector(".close").focus();
     }
 
     // Close the Modal
     function closeModal() {
-    document.getElementById("myModal").style.display = "none";
+        var modal = document.getElementById("myModal");
+        modal.style.display = "none";
+        modal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("modal-open");
     }
 
-    var slideIndex = 1;
-    showSlides(slideIndex);
+    var modalSlideIndex = 1;
+    showSlides(modalSlideIndex);
 
     // Next/previous controls
     function plusSlides(n) {
-    showSlides(slideIndex += n);
+        showSlides(modalSlideIndex += n);
     }
 
     // Thumbnail image controls
     function currentSlide(n) {
-    showSlides(slideIndex = n);
+        showSlides(modalSlideIndex = n);
     }
 
     function showSlides(n) {
@@ -127,16 +135,102 @@
     var slides = document.getElementsByClassName("mySlides");
     var dots = document.getElementsByClassName("demo");
     var captionText = document.getElementById("caption");
-    if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length}
+    if (n > slides.length) {modalSlideIndex = 1}
+    if (n < 1) {modalSlideIndex = slides.length}
     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }
     for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
     }
-    slides[slideIndex-1].style.display = "block";
-    dots[slideIndex-1].className += " active";
-    captionText.innerHTML = dots[slideIndex-1].alt;
+    slides[modalSlideIndex-1].style.display = "block";
+    dots[modalSlideIndex-1].className += " active";
+    captionText.textContent = dots[modalSlideIndex-1].dataset.caption;
     }
+
+    var carousel = document.querySelector(".carousel");
+    var carouselTrack = carousel.querySelector(".carousel-track");
+    var carouselSlides = Array.from(carousel.querySelectorAll(".carousel-slide"));
+    var carouselDots = Array.from(carousel.querySelectorAll(".carousel-dots button"));
+    var carouselStatus = carousel.querySelector(".carousel-status");
+    var carouselIndex = 0;
+    var autoplayTimer;
+    var touchStartX = 0;
+
+    function showCarouselSlide(index) {
+        carouselIndex = (index + carouselSlides.length) % carouselSlides.length;
+        carouselTrack.style.transform = "translateX(-" + (carouselIndex * 100) + "%)";
+        carouselDots.forEach(function (dot, dotIndex) {
+            dot.setAttribute("aria-selected", dotIndex === carouselIndex ? "true" : "false");
+        });
+        carouselStatus.textContent = "Image " + (carouselIndex + 1) + " of " + carouselSlides.length;
+    }
+
+    function startAutoplay() {
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        clearInterval(autoplayTimer);
+        autoplayTimer = setInterval(function () {
+            showCarouselSlide(carouselIndex + 1);
+        }, 5000);
+    }
+
+    function stopAutoplay() {
+        clearInterval(autoplayTimer);
+    }
+
+    carousel.querySelector(".carousel-previous").addEventListener("click", function () {
+        showCarouselSlide(carouselIndex - 1);
+        startAutoplay();
+    });
+
+    carousel.querySelector(".carousel-next").addEventListener("click", function () {
+        showCarouselSlide(carouselIndex + 1);
+        startAutoplay();
+    });
+
+    carouselDots.forEach(function (dot, index) {
+        dot.addEventListener("click", function () {
+            showCarouselSlide(index);
+            startAutoplay();
+        });
+    });
+
+    carousel.addEventListener("keydown", function (event) {
+        if (event.key === "ArrowLeft") showCarouselSlide(carouselIndex - 1);
+        if (event.key === "ArrowRight") showCarouselSlide(carouselIndex + 1);
+    });
+
+    carousel.addEventListener("mouseenter", stopAutoplay);
+    carousel.addEventListener("mouseleave", startAutoplay);
+    carousel.addEventListener("focusin", stopAutoplay);
+    carousel.addEventListener("focusout", startAutoplay);
+    carousel.addEventListener("touchstart", function (event) {
+        touchStartX = event.changedTouches[0].clientX;
+        stopAutoplay();
+    }, {passive: true});
+    carousel.addEventListener("touchend", function (event) {
+        var distance = event.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(distance) > 50) showCarouselSlide(carouselIndex + (distance < 0 ? 1 : -1));
+        startAutoplay();
+    }, {passive: true});
+
+    document.addEventListener("visibilitychange", function () {
+        if (document.hidden) stopAutoplay(); else startAutoplay();
+    });
+
+    showCarouselSlide(0);
+    startAutoplay();
+
+    document.addEventListener("keydown", function (event) {
+        if (document.getElementById("myModal").style.display !== "flex") return;
+        if (event.key === "Escape") closeModal();
+        if (event.key === "ArrowLeft") plusSlides(-1);
+        if (event.key === "ArrowRight") plusSlides(1);
+    });
+
+    document.getElementById("myModal").addEventListener("click", function (event) {
+        if (event.target === this) closeModal();
+    });
 </script>
+    </body>
+</html>

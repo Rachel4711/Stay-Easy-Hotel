@@ -1,6 +1,9 @@
+<?php require_once __DIR__ . '/includes/session.php'; ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Stay Easy Hotel: Home Page</title>
         <link rel="stylesheet" href="StayEasyStyle.css">
     </head>
@@ -8,22 +11,34 @@
     <body>
         <?php include 'includes/header.php'; ?>
 
-        <div id = "navBar">
-            <ul>
-                <li><a href="about.php">About</a></li>
-                <li><a href="contact.php">Contact Us</a></li>
-                <li><a href="room.php">Room Tour</a></li>
-                <li><a href="food.php">Eat & Drink</a></li>
-                <li><a href="neighbourhood.php">Neighbourhood</a></li>
-                <li><a href="gallery.php">Gallery</a></li>
-            </ul>
-        </div>
-
         <div id="banner">
             <img src="assets/banner1.jpg" alt="Stay Easy Hotel">
         </div>
 
         <div class="container">
+            <section class="booking-search-panel" aria-labelledby="booking-search-title">
+                <h1 class="sectionTitle" id="booking-search-title">Find Your Stay</h1>
+                <form class="booking-search-form" action="search.php" method="get">
+                    <div class="form-field">
+                        <label for="check_in">Check-in</label>
+                        <input type="date" id="check_in" name="check_in" min="<?= date('Y-m-d') ?>" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="check_out">Check-out</label>
+                        <input type="date" id="check_out" name="check_out" min="<?= date('Y-m-d') ?>" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="adults">Adults</label>
+                        <input type="number" id="adults" name="adults" min="1" max="10" value="1" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="children">Children</label>
+                        <input type="number" id="children" name="children" min="0" max="10" value="0" required>
+                    </div>
+                    <button type="submit">Search Rooms</button>
+                </form>
+            </section>
+
             <div class="textPlacement">
                 <h1 class="sectionTitle">
                     Stay Easy Hotel |<br> Relax. Reset. Recharge
@@ -63,7 +78,9 @@
             </ul>
             
 
-            <button>Click Me</button>
+            <a class="button" href="room.php">Explore Our Rooms</a>
         </div>
 
         <?php include 'includes/footer.php'; ?>
+    </body>
+</html>
